@@ -36,14 +36,19 @@ async function calcSoma(pNumUm, pNumDois, pNumTres) {
 
 app.post('/soma', async (req,res) => {
     try {
+          //desestruturação
         const {numUm, numDois, numTres} = req.body;
         const resultado = await calcSoma(numUm, numDois, numTres);
-        res.status(200).json({message: `Resultado do cálculo da Soma!`, resultado: resultado});
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({message:'Ocorreu um erro ao processar a solicitação!', errorMessage: error.message});
-        
-    }
+        console.log(`O resultado é da soma é: ${resultado}!`);
+        // coloco o status 201 pois quando faço um post eu 
+        // estou criando uma novo registro/requisição, sempre que usarmos post usamos o 201
+        res.status(201).json ({message:`Dados recebidos com sucesso no servidor.`})
+
+        } catch (error) {
+            console.error(error);
+            res.status(500).json({message:'Ocorreu um erro ao processar a solicitação!',
+            errorMessage: error.message});
+        }
 })
 
 
