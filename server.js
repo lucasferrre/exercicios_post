@@ -26,13 +26,16 @@ app.post('/login', async (req,res) => {
     try {
         const {usuario, senha} = req.body;
         const resultado = await validaUsuario(usuario, senha);
-        res.status(201).json({message: `Resultado do cálculo da Soma!`, resultado: resultado});
+        console.log(`Usuário validado com sucesso! bem vindo ${usuario}!`);
+        // coloco o status 201 pois quando faço um post eu 
+        // estou criando uma novo registro/requisição, sempre que usarmos post usamos o 201
+        res.status(201).json ({message:`Dados recebidos com sucesso no servidor.`});
     } catch (error) {
         console.error(error);
-        res.status(500).json({message:'Ocorreu um erro ao processar a solicitação!', errorMessage: error.message});
-        
-    }
-})
+        res.status(500).json({message:'Ocorreu um erro ao processar a solicitação!',
+        errorMessage: error.message});
+    };
+});
 
 
 // rota para erro 404 quando a página não for encontrada em relação a URL
