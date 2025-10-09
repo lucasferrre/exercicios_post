@@ -14,7 +14,7 @@ app.post('/mensagem', (req, res) => {
         console.log(`Dados recebidos!`);
         // coloco o status 201 pois quando faço um post eu 
         // estou criando uma novo registro/requisição, sempre que usarmos post usamos o 201
-        res.status(201).json ({message:`Dados recebidos com sucesso no servidor. Olá ${nome}! Você tem ${idade} anos e torce para o ${timeFavorito}!`});
+        res.status(201).json ({message:`Dados recebidos com sucesso no servidor.`, mensagem:`Olá ${nome}! Você tem ${idade} anos e torce para o ${timeFavorito}!`});
        }else{
         console.log(`Dados inválidos!`);
         // coloco o status 400 pois aqui é um erro de sintaxe e digitação do usuário
