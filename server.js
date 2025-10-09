@@ -9,10 +9,10 @@ app.use(express.json());
 // função para validar o usuario 
 async function validaUsuario(pUsuario, pSenha) {
     try {
-        if (pUsuario === 'admin' && pSenha === '1234') {
+        if (pUsuario === 'admin' && pSenha === 1234) {
             return true;
         } else {
-            throw new Error(error);
+            return false
         }
 
     } catch (error) {
