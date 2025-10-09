@@ -2,8 +2,7 @@ const express = require('express');
 const app = express();
 const PORT = 8081;
 
-// midleware - é um recurso que fica entre a requisição e a resposta
-// nesse caso eu quero que o express entenda json eu coloco esse midleware para valer para todas as rotas
+// Eu quero que o express entenda json eu coloco esse midleware para valer para todas as rotas
 app.use(express.json());
 
 // função para validar os números 
@@ -22,6 +21,7 @@ async function validaNumeros(pNumUm, pNumDois, pNumTres) {
     }
 }
 
+// função para calcular a soma dos 3 números
 async function calcSoma(pNumUm, pNumDois, pNumTres) {
     try {
         const {numero1,numero2,numero3} = await validaNumeros(pNumUm,pNumDois,pNumTres);
