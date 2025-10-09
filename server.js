@@ -11,7 +11,7 @@ app.post('/mensagem', (req, res) => {
         //desestruturação
         const {nome, idade, timeFavorito} = req.body; // no post a gente requere ele com body que é o corpo da rquisição
        if (typeof nome == "string" && !isNaN(idade) && typeof timeFavorito === "string") {
-        console.log(`Dados recebidos! Olá ${nome}! Você tem ${idade} anos e torce para o ${timeFavorito}!`);
+        console.log(`Dados recebidos!`);
         // coloco o status 201 pois quando faço um post eu 
         // estou criando uma novo registro/requisição, sempre que usarmos post usamos o 201
         res.status(201).json ({message:`Dados recebidos com sucesso no servidor. Olá ${nome}! Você tem ${idade} anos e torce para o ${timeFavorito}!`});
