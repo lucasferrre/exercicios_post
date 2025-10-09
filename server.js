@@ -30,11 +30,10 @@ app.post('/login', async (req,res) => {
             console.log(`Usuário validado com sucesso!`); 
              // coloco o status 201 pois quando faço um post eu 
             // estou criando uma novo registro/requisição, sempre que usarmos post usamos o 201
-            res.status(201).json ({message:`Dados recebidos com sucesso no servidor. Seja bem vindo ${usuario}!`});  
+            res.status(201).json ({message:`Dados recebidos com sucesso no servidor.`,mensagem:`Seja bem vindo ${usuario}!`});  
         }else{
             console.log(`Usuário inválido!`);
-             // coloco o status 201 pois quando faço um post eu 
-            // estou criando uma novo registro/requisição, sempre que usarmos post usamos o 201
+             // coloco o status 400 pois é um erro de sintaxe e digitação do usuário
             res.status(400).json ({message:`Servidor não pode processar sua solicitação devido a um erro de sintaxe inválida, tente novamente!`});
         }
       
